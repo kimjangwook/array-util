@@ -19,4 +19,9 @@ class ArrayUtil
         $filteredArray = array_values($filteredArray);
         return array_shift($filteredArray);
     }
+
+    public static function exists(array $array, $callback)
+    {
+        return array_filter($array, $callback) ? true : false;
+    }
 }

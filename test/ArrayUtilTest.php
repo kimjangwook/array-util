@@ -24,4 +24,19 @@ class ArrayUtilTest extends TestCase
             return $person['age'] === 29;
         }));
     }
+
+    public function testExists()
+    {
+        $testArr = [
+            [ 'name' => 'a', 'age' => 30 ],
+            [ 'name' => 'b', 'age' => 28 ],
+            [ 'name' => 'c', 'age' => 30 ],
+        ];
+        $this->assertTrue(ArrayUtil::exists($testArr, function ($person) {
+            return $person['age'] === 30;
+        }));
+        $this->assertFalse(ArrayUtil::exists($testArr, function ($person) {
+            return $person['age'] === 29;
+        }));
+    }
 }
